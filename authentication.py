@@ -2,12 +2,19 @@
 user = 'whatisamax'
 password = "piano123"
 
+import getpass
+
 #Using a while loop to allow the user to enter their username and password until they get it right
 Flag = False
+#Limiting the number of attempts to 3
 maxattempts = 3
-while not Flag:
+while not Flag and maxattempts > 0:
     userinput = str(input("Enter username: "))
-    passwordinput = str(input("Enter password: "))
+    passwordinput = getpass.getpass("Enter password: ")
+    if userinput == "" or passwordinput == "":
+        print("Username and password cannot be empty. Please try again.")
+        continue
+
     if userinput == user and passwordinput == password:
         print("Login successful")
         Flag = True
@@ -21,6 +28,6 @@ while not Flag:
         print("Invalid username and password")
         maxattempts -= 1
 
-    if maxattempts == 0:
-        print("Too many failed attempts. Please try again later.")
-        break
+#Announces when the user has reached the maximum number of attempts
+if maxattempts == 0:
+    print("Maximum attempts reached. Access denied.") 
