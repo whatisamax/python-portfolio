@@ -7,12 +7,12 @@ def password(password):
 def user(user,password):
     if user == "admin":
         return password(password)
-    elif:
+    else:
         return "invalid"
 
-for i in range(3)
-user = str(input("Enter username: "))
-password = str(input("Enter password: "))
+for i in range(3):
+    user = str(input("Enter username: "))
+    password = str(input("Enter password: "))
 
 result = user(user,password)
 print(result)
